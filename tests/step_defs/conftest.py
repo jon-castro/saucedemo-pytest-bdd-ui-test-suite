@@ -35,12 +35,19 @@ def pytest_runtest_makereport(item, call):
 
 @pytest.fixture
 def browser():
-    b = webdriver.Chrome(executable_path=settings.CHROMEDRIVER_LOCATION)
+    b = select_browser(settings.SELECTED_BROWSER)
     yield b
     b.quit()
 
-# Common Given steps
 
+def select_browser(selected_browser):
+    if selected_browser == 'Chrome':
+        return webdriver.Chrome(executable_path=settings.CHROMEDRIVER_LOCATION)
+    elif selected_browser == 'Firefox':
+        return webdriver.Firefox(executable_path=settings.GECKODRIVER_LOCATION)
+
+
+# Common Given steps
 
 @given('I am on the login page.')
 def saucedemo_login_screen(browser):
