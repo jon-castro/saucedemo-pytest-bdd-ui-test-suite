@@ -13,6 +13,7 @@ def pytest_bdd_step_error(request, feature, scenario, step, step_func, step_func
 
 # Hook for adding extras to the HTML report:
 
+
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
     pytest_html = item.config.pluginmanager.getplugin('html')
@@ -34,3 +35,14 @@ def pytest_runtest_makereport(item, call):
 
 @pytest.fixture
 def browser():
+    b = webdriver.Chrome(executable_path=settings.CHROMEDRIVER_LOCATION)
+    yield b
+    b.quit()
+
+# Common Given steps
+
+
+@given('I am on the login page.')
+def saucedemo_login_screen(browser):
+    login = LoginPage(browser)
+    login.load_login_page

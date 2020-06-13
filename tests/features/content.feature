@@ -8,4 +8,4 @@ Feature: Saucedemo web page content verification
 
     Scenario: All Login page content is present.
         Given I am on the login page.
-        Then all Login page content is present.
+        Then all login page content is present.
