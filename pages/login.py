@@ -69,8 +69,45 @@ class LoginPage:
     def accepted_usernames_list_title_element(self):
         return self.browser.find_element(*self.ACCEPTED_USERNAMES_LIST_TITLE)
 
+    @property
+    def accepted_usernames_list_title_text(self):
+        return self.ACCEPTED_USERNAMES_LIST_TITLE_TEXT
+
+    @property
+    def password_list_element(self):
+        return self.browser.find_element(*self.PASSWORD_LIST)
+
+    @property
+    def password_list_title_element(self):
+        return self.browser.find_element(*self.PASSWORD_LIST_TITLE)
+
+    @property
+    def password_list_title_text_element(self):
+        return self.PASSWORD_LIST_TITLE_TEXT
+
+    @property
+    def login_error_button_element(self):
+        return self.browser.find_element(*self.LOGIN_ERROR_BUTTON)
+
+    @property
+    def locked_out_user_error_message_element(self):
+        return self.browser.find_element(*self.LOCKED_OUT_USER_ERROR_MESSAGE)
+
+    @property
+    def locked_out_user_error_message_text(self):
+        return self.LOCKED_OUT_USER_ERROR_MESSAGE_TEXT
+
     # Page Actions
 
     @property
     def load_login_page(self):
         self.browser.get(self.url)
+        self.browser.maximize_window()
+
+    @property
+    def enter_username(self, username):
+        try:
+            pass
+        except:
+            # Failed screenshot
+            pass
