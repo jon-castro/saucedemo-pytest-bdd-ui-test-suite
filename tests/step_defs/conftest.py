@@ -11,8 +11,8 @@ from pages.login import LoginPage
 def pytest_bdd_step_error(request, feature, scenario, step, step_func, step_func_args, exception):
     print(f'Step failed: {step}')
 
-# Hook for adding extras to the HTML report:
 
+# Hook for adding extras to the HTML report:
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):

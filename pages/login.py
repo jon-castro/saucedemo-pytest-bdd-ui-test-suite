@@ -8,14 +8,29 @@ class LoginPage:
 
     # Parameters
 
-    standard_user = settings.LOGIN_STANDARD_USER
-    password = settings.LOGIN_PASSWORD
+    STANDARD_USER = settings.LOGIN_STANDARD_USER
+    PASSWORD = settings.LOGIN_PASSWORD
+
+    # Page Text
+
+    ACCEPTED_USERNAMES_LIST_TITLE_TEXT = "Accepted usernames are:"
+    PASSWORD_LIST_TITLE_TEXT = "Password for all users:"
+    LOCKED_OUT_USER_ERROR_MESSAGE_TEXT = "Epic sadface: Sorry, this user has been locked out."
 
     # Page Locators
 
     LOGIN_URL = settings.SAUCEDEMO_URL
     LOGO = By.XPATH, "//div[@class='login_logo']"
-
+    USERNAME_FIELD = By.XPATH, "//input[@id='user-name']"
+    PASSWORD_FIELD = By.XPATH, "//input[@id='password']"
+    LOGIN_BUTTON = By.XPATH, "//input[@class='btn_action']"
+    BOT_IMAGE = By.XPATH, "//div[@class='bot_column']"
+    ACCEPTED_USERNAMES_LIST = By.XPATH, "//div[@id='login_credentials']"
+    ACCEPTED_USERNAMES_LIST_TITLE = By.XPATH, "//h4[contains(text(),'Accepted usernames are:')]"
+    PASSWORD_LIST = By.XPATH, "//div[@class='login_password']"
+    PASSWORD_LIST_TITLE = By.XPATH, "//h4[contains(text(),'Password for all users:')]"
+    LOGIN_ERROR_BUTTON = By.XPATH, "//button[@class='error-button']//*[local-name()='svg']"
+    LOCKED_OUT_USER_ERROR_MESSAGE = By.XPATH, "//h3[1]"
 
     def __init__(self, browser):
         self.browser = browser
@@ -25,6 +40,34 @@ class LoginPage:
     @property
     def url(self):
         return self.LOGIN_URL
+
+    @property
+    def logo_element(self):
+        return self.browser.find_element(*self.LOGO)
+
+    @property
+    def username_field_element(self):
+        return self.browser.find_element(*self.USERNAME_FIELD)
+
+    @property
+    def password_field_element(self):
+        return self.browser.find_element(*self.PASSWORD_FIELD)
+
+    @property
+    def login_button_element(self):
+        return self.browser.find_element(*self.LOGIN_BUTTON)
+
+    @property
+    def bot_image_element(self):
+        return self.browser.find_element(*self.BOT_IMAGE)
+
+    @property
+    def accepted_usernames_list_element(self):
+        return self.browser.find_element(*self.ACCEPTED_USERNAMES_LIST)
+
+    @property
+    def accepted_usernames_list_title_element(self):
+        return self.browser.find_element(*self.ACCEPTED_USERNAMES_LIST_TITLE)
 
     # Page Actions
 
