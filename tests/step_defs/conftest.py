@@ -53,3 +53,9 @@ def select_browser(selected_browser):
 def saucedemo_login_screen(browser):
     login = LoginPage(browser)
     login.load_login_page
+
+
+@given('I log in with the standard user.')
+def standard_user_log_in(browser):
+    login = LoginPage(browser)
+    login.log_in_standard_user

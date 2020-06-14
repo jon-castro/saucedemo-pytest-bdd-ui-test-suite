@@ -12,5 +12,13 @@ scenarios('../features/content.feature')
 
 @then('all login page content is present.')
 def login_page_content_verification(browser, saucedemo_login_screen):
-    # login = LoginPage(browser)
+    login = LoginPage(browser)
+    sleep(3)
+    assert login.logo_element.is_displayed()
+    assert login.username_field_element.is_displayed()
+
+
+
+@then('all home page content is present.')
+def home_page_content_verification(browser, standard_user_log_in):
     sleep(8)
