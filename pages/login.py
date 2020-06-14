@@ -6,9 +6,16 @@ import settings
 
 class LoginPage:
 
+    # Parameters
+
+    standard_user = settings.LOGIN_STANDARD_USER
+    password = settings.LOGIN_PASSWORD
+
     # Page Locators
 
-    URL = settings.SAUCEDEMO_URL
+    LOGIN_URL = settings.SAUCEDEMO_URL
+    LOGO = By.XPATH, "//div[@class='login_logo']"
+
 
     def __init__(self, browser):
         self.browser = browser
@@ -17,7 +24,7 @@ class LoginPage:
 
     @property
     def url(self):
-        return self.URL
+        return self.LOGIN_URL
 
     # Page Actions
 
