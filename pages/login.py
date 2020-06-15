@@ -109,9 +109,10 @@ class LoginPage:
 
     def enter_username(self, username):
         try:
-            self.username_field_element.send_keys(username)
+            self.username_field_element.send_keys('asas')
         except:
-            # Failed screenshot
+            self.save_screenshot('screenshots/failed/' +
+                                 self.enter_username.__name__ + '.png')
             print('Step ' + self.enter_username.__name__ + ' failed.')
 
     @property

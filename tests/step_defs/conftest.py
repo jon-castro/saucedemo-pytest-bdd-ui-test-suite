@@ -49,6 +49,7 @@ def select_browser(selected_browser):
 
 # Common Given steps
 
+
 @given('I am on the login page.')
 def saucedemo_login_screen(browser):
     login = LoginPage(browser)
