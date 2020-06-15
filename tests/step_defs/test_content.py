@@ -16,7 +16,12 @@ def login_page_content_verification(browser, saucedemo_login_screen):
     sleep(3)
     assert login.logo_element.is_displayed()
     assert login.username_field_element.is_displayed()
-
+    assert login.password_field_element.is_displayed()
+    assert login.login_button_element.is_displayed()
+    assert login.accepted_usernames_list_element.is_displayed()
+    assert login.accepted_usernames_list_title_element.text == login.accepted_usernames_list_title_text
+    assert login.password_list_element.is_displayed()
+    assert login.password_list_title_element.text == login.password_list_title_text
 
 
 @then('all home page content is present.')

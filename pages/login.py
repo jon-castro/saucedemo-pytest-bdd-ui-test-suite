@@ -85,7 +85,7 @@ class LoginPage:
         return self.browser.find_element(*self.PASSWORD_LIST_TITLE)
 
     @property
-    def password_list_title_text_element(self):
+    def password_list_title_text(self):
         return self.PASSWORD_LIST_TITLE_TEXT
 
     @property
