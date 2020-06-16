@@ -108,77 +108,44 @@ class LoginPage:
         self.browser.maximize_window()
 
     def enter_username(self, username):
-        try:
-            self.username_field_element.send_keys('asas')
-        except:
-            self.save_screenshot('screenshots/failed/' +
-                                 self.enter_username.__name__ + '.png')
-            print('Step ' + self.enter_username.__name__ + ' failed.')
+        self.username_field_element.send_keys(username)
 
     @property
     def enter_password(self):
-        try:
-            self.password_field_element.send_keys(settings.LOGIN_PASSWORD)
-        except:
-            # Failed screenshot
-            print('Step ' + self.enter_password.__name__ + ' failed.')
+        self.password_field_element.send_keys(settings.LOGIN_PASSWORD)
 
     @property
     def click_login_button(self):
-        try:
-            self.login_button_element.click()
-        except:
-            # Failed screenshot
-            print('Step ' + self.click_login_button.__name__ + ' failed.')
+        self.login_button_element.click()
 
     @property
     def log_in_standard_user(self):
-        try:
-            self.load_login_page
-            self.enter_username(self.STANDARD_USER)
-            self.enter_password
-            self.click_login_button
-        except:
-            # Failed screenshot
-            print('Step ' + self.log_in_standard_user.__name__ + ' failed.')
+        self.load_login_page
+        self.enter_username(self.STANDARD_USER)
+        self.enter_password
+        self.click_login_button
 
     @property
     def log_in_locked_out_user(self):
-        try:
-            self.load_login_page
-            self.enter_username(self.LOCKED_OUT_USER)
-            self.enter_password
-            self.click_login_button
-        except:
-            # Failed screenshot
-            print('Step ' + self.log_in_locked_out_user.__name__ + ' failed.')
+        self.load_login_page
+        self.enter_username(self.LOCKED_OUT_USER)
+        self.enter_password
+        self.click_login_button
 
     @property
     def click_locked_out_user_error_button(self):
-        try:
-            self.login_error_button_element.click()
-        except:
-            # Failed screenshot
-            print('Step ' + self.click_locked_out_user_error_button.__name__ + ' failed.')
+        self.login_error_button_element.click()
 
     @property
     def log_in_problem_user(self):
-        try:
-            self.load_login_page
-            self.enter_username(self.PROBLEM_USER)
-            self.enter_password
-            self.click_login_button
-        except:
-            # Failed screenshot
-            print('Step ' + self.log_in_problem_user.__name__ + ' failed.')
+        self.load_login_page
+        self.enter_username(self.PROBLEM_USER)
+        self.enter_password
+        self.click_login_button
 
     @property
     def log_in_performance_glitch_user(self):
-        try:
-            self.load_login_page
-            self.enter_username(self.PERFORMANCE_GLITCH_USER)
-            self.enter_password
-            self.click_login_button
-        except:
-            # Failed screenshot
-            print('Step ' + self.log_in_performance_glitch_user.__name__ + ' failed.')
+        self.load_login_page
+        self.enter_username(self.PERFORMANCE_GLITCH_USER)
+        self.enter_password
+        self.click_login_button

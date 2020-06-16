@@ -1,6 +1,7 @@
 import pytest
 from pytest_bdd import given, when, then
 from selenium import webdriver
+from pathlib import Path
 
 import settings
 from pages.login import LoginPage
@@ -38,6 +39,9 @@ def browser():
     b = select_browser(settings.SELECTED_BROWSER)
     yield b
     b.quit()
+
+
+# Utility functions
 
 
 def select_browser(selected_browser):
