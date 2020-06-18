@@ -2,6 +2,7 @@ import pytest
 from pytest_bdd import given, when, then
 from selenium import webdriver
 from pathlib import Path
+from datetime import datetime
 
 import settings
 from pages.login import LoginPage
@@ -12,6 +13,8 @@ from pages.login import LoginPage
 def pytest_bdd_step_error(request, feature, scenario, step, step_func, step_func_args, exception):
     print(f'Step failed: {step}')
     # Take screenshot (create folder if needed).
+    create_screenshots_folders()
+    take_screenshot_on_fail(browser=browser)
 
 
 # Hook for adding extras to the HTML report:
@@ -38,9 +41,15 @@ def pytest_runtest_makereport(item, call):
 @pytest.fixture
 def browser():
     b = select_browser(settings.SELECTED_BROWSER)
+    b.implicitly_wait(10)
     yield b
     b.quit()
 
+
+def take_screenshot_on_fail(browser):
+    timestamp = datetime.now().strftime('%H-%M-%S')
+    browser.save_screenshot(
+        settings.SCREENSHOTS_FOLDER + "/failed" + timestamp + '.png')
 
 # Utility functions
 
@@ -51,6 +60,12 @@ def select_browser(selected_browser):
     elif selected_browser == 'Firefox':
         return webdriver.Firefox(executable_path=settings.GECKODRIVER_LOCATION)
 
+
+def create_screenshots_folders():
+    Path(settings.SCREENSHOTS_FOLDER +
+         "/failed").mkdir(parents=True, exist_ok=True)
+    Path(settings.SCREENSHOTS_FOLDER +
+         "/test_results").mkdir(parents=True, exist_ok=True)
 
 # Common Given steps
 
