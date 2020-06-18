@@ -11,6 +11,7 @@ from pages.login import LoginPage
 
 def pytest_bdd_step_error(request, feature, scenario, step, step_func, step_func_args, exception):
     print(f'Step failed: {step}')
+    # Take screenshot (create folder if needed).
 
 
 # Hook for adding extras to the HTML report:
