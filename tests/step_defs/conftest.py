@@ -1,8 +1,8 @@
 import pytest
 from pytest_bdd import given, when, then
 from selenium import webdriver
-from pathlib import Path
-from datetime import datetime
+# from pathlib import Path
+# from datetime import datetime
 
 import settings
 from pages.login import LoginPage
