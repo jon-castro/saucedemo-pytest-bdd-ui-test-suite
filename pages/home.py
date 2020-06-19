@@ -4,72 +4,24 @@ from selenium.webdriver.common.keys import Keys
 import settings
 
 
-class HeaderComponent:
+class HomePage:
 
-    # Component Locators
+    # Page Text
 
-    HEADER = By.XPATH, "//div[@id='header_container']"
-    MENU_BUTTON = By.XPATH, "//div[@class='bm-burger-button']"
-    CART_BUTTON = By.XPATH, "//a[@class='shopping_cart_link fa-layers fa-fw']//*[local-name()='svg']"
-    CART_BADGE = By.XPATH, "//span[@class='fa-layers-counter shopping_cart_badge']"
-    SIDE_MENU = By.XPATH, "//div[@class='bm-menu']"
-    SIDE_MENU_CLOSE_BUTTON = By.XPATH, "//div[@class='bm-cross-button']"
-    SIDE_MENU_ALL_ITEMS_LINK = By.XPATH, "//a[@id='inventory_sidebar_link']"
-    SIDE_MENU_ABOUT_LINK = By.XPATH, "//a[@id='about_sidebar_link']"
-    SIDE_MENU_LOGOUT_LINK = By.XPATH, "//a[@id='logout_sidebar_link']"
-    SIDE_MENU_RESET_APP_LINK = By.XPATH, "//a[@id='reset_sidebar_link']"
+    SECONDARY_HEADER_LABEL_TEXT = "Products"
+    FOOTER_COPYRIGHT_NOTICE_TEXT = "© 2019 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy"
 
-    def __init__(self, browser):
-        self.browser = browser
+    # Page Locators
 
-    # Component Objects
+    URL = settings.SAUCEDEMO_URL + "/#/"
+    SECONDARY_HEADER = "//div[@class='header_secondary_container']"
+    SECONDARY_HEADER_LOGO = "//div[@class='peek']"
+    SECONDARY_HEADER_LABEL = "//div[@class='product_label']"
+    SECONDARY_HEADER_SORT_DROPDOWN = "//select[@class='product_sort_container']"
+    SECONDARY_HEADER_SORT_DROPDOWN_AZ_OPTION = "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/select[1]/option[1]"
+    SECONDARY_HEADER_SORT_DROPDOWN_AZ_OPTION = "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/select[1]/option[2]"
+    SECONDARY_HEADER_SORT_DROPDOWN_LO_HI_OPTION = "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/select[1]/option[3]"
+    SECONDARY_HEADER_SORT_DROPDOWN_HI_LO_OPTION = "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/select[1]/option[4]"
 
-    @property
-    def header_element(self):
-        return self.browser.find_element(*self.HEADER)
-
-    @property
-    def menu_button_element(self):
-        return self.browser.find_element(*self.MENU_BUTTON)
-
-    @property
-    def cart_button_element(self):
-        return self.browser.find_element(*self.CART_BUTTON)
-
-    @property
-    def cart_badge_element(self):
-        return self.browser.find_element(*self.CART_BADGE)
-
-    @property
-    def side_menu_element(self):
-        return self.browser.find_element(*self.SIDE_MENU)
-
-    @property
-    def side_menu_close_button_element(self):
-        return self.browser.find_element(*self.SIDE_MENU_CLOSE_BUTTON)
-
-    @property
-    def side_menu_all_items_link_element(self):
-        return self.browser.find_element(*self.SIDE_MENU_ALL_ITEMS_LINK)
-
-    @property
-    def side_menu_about_link_element(self):
-        return self.browser.find_element(*self.SIDE_MENU_ABOUT_LINK)
-
-    @property
-    def side_menu_about_link_element(self):
-        return self.browser.find_element(*self.SIDE_MENU_ABOUT_LINK)
-
-    @property
-    def side_menu_logout_link_element(self):
-        return self.browser.find_element(*self.SIDE_MENU_LOGOUT_LINK)
-
-    @property
-    def side_menu_reset_app_link_element(self):
-        return self.browser.find_element(*self.SIDE_MENU_RESET_APP_LINK)
-
-    # Page Actions
-
-    @property
-    def click_menu_button(self):
-        self.menu_button_element.click()
+    def PRODUCT_SECTION_BY_INDEX(itemIndex=1):
+        return "//body[@class='main-body']/div[@id='page_wrapper']/div[@id='contents_wrapper']/div[@id='inventory_container']/div/div[@id='inventory_container']/div[@class='inventory_list']/div[" + itemIndex + "]"
