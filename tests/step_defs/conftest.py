@@ -10,11 +10,9 @@ from pages.login import LoginPage
 
 # Hooks
 
+
 def pytest_bdd_step_error(request, feature, scenario, step, step_func, step_func_args, exception):
     print(f'Step failed: {step}')
-    # Take screenshot (create folder if needed).
-    create_screenshots_folders()
-    take_screenshot_on_fail(browser=browser)
 
 
 # Hook for adding extras to the HTML report:
@@ -46,11 +44,6 @@ def browser():
     b.quit()
 
 
-def take_screenshot_on_fail(browser):
-    timestamp = datetime.now().strftime('%H-%M-%S')
-    browser.save_screenshot(
-        settings.SCREENSHOTS_FOLDER + "/failed" + timestamp + '.png')
-
 # Utility functions
 
 
@@ -61,11 +54,19 @@ def select_browser(selected_browser):
         return webdriver.Firefox(executable_path=settings.GECKODRIVER_LOCATION)
 
 
-def create_screenshots_folders():
-    Path(settings.SCREENSHOTS_FOLDER +
-         "/failed").mkdir(parents=True, exist_ok=True)
-    Path(settings.SCREENSHOTS_FOLDER +
-         "/test_results").mkdir(parents=True, exist_ok=True)
+# def create_screenshots_folders():
+#     Path(settings.SCREENSHOTS_FOLDER +
+#          "/failed").mkdir(parents=True, exist_ok=True)
+#     Path(settings.SCREENSHOTS_FOLDER +
+#          "/test_results").mkdir(parents=True, exist_ok=True)
+
+
+# def take_screenshot_on_fail(browser):
+#     create_screenshots_folders()
+#     timestamp = datetime.now().strftime('%H-%M-%S')
+#     browser.save_screenshot(
+#         settings.SCREENSHOTS_FOLDER + "/failed" + timestamp + '.png')
+
 
 # Common Given steps
 

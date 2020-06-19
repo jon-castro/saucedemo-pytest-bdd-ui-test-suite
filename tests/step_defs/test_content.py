@@ -26,6 +26,6 @@ def login_page_content_verification(browser, saucedemo_login_screen):
 
 @then('all home page content is present.')
 def home_page_content_verification(browser, standard_user_log_in):
-    sleep(8)
+    sleep(3)
     login = LoginPage(browser)
-    assert browser.url != login.url
+    assert browser.current_url == login.url

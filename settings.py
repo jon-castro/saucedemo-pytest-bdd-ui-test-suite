@@ -11,6 +11,6 @@ LOGIN_PROBLEM_USER = os.environ.get("LOGIN_PROBLEM_USER", None)
 LOGIN_PERFORMANCE_GLITCH_USER = os.environ.get(
     "LOGIN_PERFORMANCE_GLITCH_USER", None)
 LOGIN_PASSWORD = os.environ.get("LOGIN_PASSWORD", None)
-SCREENSHOTS_FOLDER = os.environ.get("SCREENSHOTS_FOLDER", None)
+# SCREENSHOTS_FOLDER = os.environ.get("SCREENSHOTS_FOLDER", None)
 # Options: 'Chrome', 'Firefox'
 SELECTED_BROWSER = 'Chrome'
