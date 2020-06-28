@@ -4,6 +4,7 @@ from time import sleep
 
 import settings
 from pages.login import LoginPage
+from pages.home import HomePage
 from pages.components.header import HeaderComponent
 
 scenarios('../features/content.feature')
@@ -43,5 +44,7 @@ def header_component_content_verification(browser, standard_user_log_in):
 @then('all home page content is present.')
 def home_page_content_verification(browser, standard_user_log_in):
     sleep(3)
-    login = LoginPage(browser)
-    assert browser.current_url != login.url
+    home = HomePage(browser)
+    assert browser.current_url == home.url
+    assert home.secondary_header.is_displayed(), "Header not present."
+    assert
