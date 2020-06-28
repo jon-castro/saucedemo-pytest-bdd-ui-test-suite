@@ -65,61 +65,69 @@ class HomePage:
         return self.HOME_URL
 
     @property
-    def secondary_header(self):
+    def secondary_header_element(self):
         return self.browser.find_element(*self.SECONDARY_HEADER)
 
     @property
-    def secondary_header_logo(self):
+    def secondary_header_logo_element(self):
         return self.browser.find_element(*self.SECONDARY_HEADER_LOGO)
 
     @property
-    def secondary_header_label(self):
+    def secondary_header_label_element(self):
         return self.browser.find_element(*self.SECONDARY_HEADER_LABEL)
 
     @property
-    def secondary_header_sort_dropdown(self):
+    def secondary_header_label_text(self):
+        return self.SECONDARY_HEADER_LABEL_TEXT
+
+    @property
+    def secondary_header_sort_dropdown_element(self):
         return self.browser.find_element(*self.SECONDARY_HEADER_SORT_DROPDOWN)
 
     @property
-    def secondary_header_sort_dropdown_az_option(self):
+    def secondary_header_sort_dropdown_az_option_element(self):
         return self.browser.find_element(*self.SECONDARY_HEADER_SORT_DROPDOWN_AZ_OPTION)
 
     @property
-    def secondary_header_sort_dropdown_za_option(self):
+    def secondary_header_sort_dropdown_za_option_element(self):
         return self.browser.find_element(*self.SECONDARY_HEADER_SORT_DROPDOWN_ZA_OPTION)
 
     @property
-    def secondary_header_sort_dropdown_lo_hi_option(self):
+    def secondary_header_sort_dropdown_lo_hi_option_element(self):
         return self.browser.find_element(*self.SECONDARY_HEADER_SORT_DROPDOWN_LO_HI_OPTION)
 
     @property
-    def secondary_header_sort_dropdown_hi_lo_option(self):
+    def secondary_header_sort_dropdown_hi_lo_option_element(self):
         return self.browser.find_element(*self.SECONDARY_HEADER_SORT_DROPDOWN_HI_LO_OPTION)
 
-    def product_section_by_index(self, item_index):
+    def product_section_by_index_element(self, item_index):
         return self.browser.find_element(self.PRODUCT_SECTION_BY_INDEX(item_index))
 
-    def product_image_by_index(self, item_index):
+    def product_image_by_index_element(self, item_index):
         return self.browser.find_element(self.PRODUCT_IMAGE_BY_INDEX(item_index))
 
-    def product_name_by_index(self, item_index):
+    def product_name_by_index_element(self, item_index):
         return self.browser.find_element(self.PRODUCT_NAME_BY_INDEX(item_index))
 
-    def product_description_by_index(self, item_index):
+    def product_description_by_index_element(self, item_index):
         return self.browser.find_element(self.PRODUCT_DESCRIPTION_BY_INDEX(item_index))
 
-    def product_price_by_index(self, item_index):
+    def product_price_by_index_element(self, item_index):
         return self.browser.find_element(self.PRODUCT_PRICE_BY_INDEX(item_index))
 
-    def product_add_to_cart_button_by_index(self, item_index):
+    def product_add_to_cart_button_by_index_element(self, item_index):
         return self.browser.find_element(self.PRODUCT_ADD_TO_CART_BUTTON_BY_INDEX(item_index))
 
     @property
-    def footer_section(self):
+    def footer_section_element(self):
         return self.browser.find_element(*self.FOOTER_SECTION)
 
     @property
-    def footer_copyright_notice(self):
+    def footer_copyright_notice_element(self):
         return self.browser.find_element(*self.FOOTER_COPYRIGHT_NOTICE)
+
+    @property
+    def footer_copyright_notice_text(self):
+        return self.FOOTER_COPYRIGHT_NOTICE_TEXT
 
     # Page Actions
