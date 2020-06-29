@@ -45,10 +45,12 @@ def header_component_content_verification(browser, standard_user_log_in):
 
 
 @then('all home page content is present.')
-def home_page_content_verification(browser, standard_user_log_in):
+def home_page_content_verification(browser):
     sleep(3)
     home = HomePage(browser)
     assert browser.current_url == home.url
     assert home.secondary_header_element.is_displayed(), "Header not present."
     assert home.secondary_header_logo_element.is_displayed(), "Header logo not present."
     assert home.secondary_header_label_element.text == home.SECONDARY_HEADER_LABEL_TEXT
+    assert home.secondary_header_sort_dropdown_element.is_displayed(), "Product sort dropdown not present."
+    assert home.product_section_by_index_element(1).is_displayed(), "Product section not present."

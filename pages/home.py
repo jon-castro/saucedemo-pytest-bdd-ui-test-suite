@@ -22,36 +22,6 @@ class HomePage:
     SECONDARY_HEADER_SORT_DROPDOWN_ZA_OPTION = By.XPATH, "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/select[1]/option[2]"
     SECONDARY_HEADER_SORT_DROPDOWN_LO_HI_OPTION = By.XPATH, "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/select[1]/option[3]"
     SECONDARY_HEADER_SORT_DROPDOWN_HI_LO_OPTION = By.XPATH, "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/select[1]/option[4]"
-
-    def PRODUCT_SECTION_BY_INDEX(item_index=1):
-        xpath = "//body[@class='main-body']/div[@id='page_wrapper']/div[@id='contents_wrapper']/div[@id='inventory_container']/div/div[@id='inventory_container']/div[@class='inventory_list']/div[" + item_index + "]"
-        return By.XPATH, xpath
-
-    def PRODUCT_IMAGE_BY_INDEX(item_index=1):
-        xpath = "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[" + \
-            item_index + "]/div[1]/a[1]"
-        return By.XPATH, xpath
-
-    def PRODUCT_NAME_BY_INDEX(item_index=1):
-        xpath = "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[" + \
-            item_index + "]/div[2]/a[1]/div[1]"
-        return By.XPATH, xpath
-
-    def PRODUCT_DESCRIPTION_BY_INDEX(item_index=1):
-        xpath = "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[" + \
-            item_index + "]/div[2]/div[1]"
-        return By.XPATH, xpath
-
-    def PRODUCT_PRICE_BY_INDEX(item_index=1):
-        xpath = "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[" + \
-            item_index + "]/div[3]/div[1]"
-        return By.XPATH, xpath
-
-    def PRODUCT_ADD_TO_CART_BUTTON_BY_INDEX(item_index=1):
-        xpath = "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[" + \
-            item_index + "]/div[3]/button[1]"
-        return By.XPATH, xpath
-
     FOOTER_SECTION = By.XPATH, "/html[1]/body[1]/footer[1]"
     FOOTER_COPYRIGHT_NOTICE = By.XPATH, "/html[1]/body[1]/footer[1]/div[1]"
 
@@ -100,23 +70,23 @@ class HomePage:
     def secondary_header_sort_dropdown_hi_lo_option_element(self):
         return self.browser.find_element(*self.SECONDARY_HEADER_SORT_DROPDOWN_HI_LO_OPTION)
 
-    def product_section_by_index_element(self, item_index):
-        return self.browser.find_element(self.PRODUCT_SECTION_BY_INDEX(item_index))
+    def product_section_by_index_element(self, item_index=1):
+        return self.browser.find_element(By.XPATH, "//body[@class='main-body']/div[@id='page_wrapper']/div[@id='contents_wrapper']/div[@id='inventory_container']/div/div[@id='inventory_container']/div[@class='inventory_list']/div[" + str(item_index) + "]")
 
-    def product_image_by_index_element(self, item_index):
-        return self.browser.find_element(self.PRODUCT_IMAGE_BY_INDEX(item_index))
+    def product_image_by_index_element(self, item_index=1):
+        return self.browser.find_element(By.XPATH, "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[" + str(item_index) + "]/div[1]/a[1]")
 
-    def product_name_by_index_element(self, item_index):
-        return self.browser.find_element(self.PRODUCT_NAME_BY_INDEX(item_index))
+    def product_name_by_index_element(self, item_index=1):
+        return self.browser.find_element(By.XPATH, "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[" + str(item_index) + "]/div[2]/a[1]/div[1]")
 
-    def product_description_by_index_element(self, item_index):
-        return self.browser.find_element(self.PRODUCT_DESCRIPTION_BY_INDEX(item_index))
+    def product_description_by_index_element(self, item_index=1):
+        return self.browser.find_element(By.XPATH, "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[" + str(item_index) + "]/div[2]/div[1]")
 
-    def product_price_by_index_element(self, item_index):
-        return self.browser.find_element(self.PRODUCT_PRICE_BY_INDEX(item_index))
+    def product_price_by_index_element(self, item_index=1):
+        return self.browser.find_element(By.XPATH, "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[" + str(item_index) + "]/div[3]/div[1]")
 
-    def product_add_to_cart_button_by_index_element(self, item_index):
-        return self.browser.find_element(self.PRODUCT_ADD_TO_CART_BUTTON_BY_INDEX(item_index))
+    def product_add_to_cart_button_by_index_element(self, item_index=1):
+        return self.browser.find_element(By.XPATH, "/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[" + str(item_index) + "]/div[3]/button[1]")
 
     @property
     def footer_section_element(self):
