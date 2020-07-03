@@ -1,6 +1,7 @@
 from pytest_bdd import scenarios, given, then
 from selenium.webdriver.common.keys import Keys
 from time import sleep
+from decimal import Decimal
 
 import settings
 from pages.login import LoginPage
@@ -67,6 +68,15 @@ def home_page_content_verification(browser):
     assert home.footer_copyright_notice_element.text == home.footer_copyright_notice_text
 
     # TODO: then - first price is higher than second price
+@then('first price is higher than second price.')
+def verify_if_first_price_is_higher_than_second_price(browser):
+    sleep(1)
+    home = HomePage(browser)
+    first_price = Decimal(home.product_price_by_index_element(1).text[1:])
+    second_price = Decimal(home.product_price_by_index_element(2).text[1:])
+    assert first_price <= second_price
+
+
     # TODO: then - first price is lower than second price
     # TODO: then - sorted products are in alphabetical order
     # TODO: then - sorted products are in reverse alphabetical order
