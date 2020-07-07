@@ -53,30 +53,27 @@ def home_page_content_verification(browser):
     assert home.secondary_header_element.is_displayed(), "Header not present."
     assert home.secondary_header_logo_element.is_displayed(), "Header logo not present."
     assert home.secondary_header_label_element.text == home.secondary_header_label_text
-    assert home.secondary_header_sort_dropdown_element.is_displayed(), "Product sort dropdown not present."
-    assert home.secondary_header_sort_dropdown_az_option_element.is_displayed(), "Product sort dropdown option not present."
-    assert home.secondary_header_sort_dropdown_za_option_element.is_displayed(), "Product sort dropdown option not present."
-    assert home.secondary_header_sort_dropdown_hi_lo_option_element.is_displayed(), "Product sort dropdown option not present."
-    assert home.secondary_header_sort_dropdown_lo_hi_option_element.is_displayed(), "Product sort dropdown option not present."
-    assert home.product_section_by_index_element(1).is_displayed(), "Product section not present."
-    assert home.product_image_by_index_element(1).is_displayed(), "Product image not present."
-    assert home.product_name_by_index_element(1).is_displayed(), "Product name not present."
-    assert home.product_description_by_index_element(1).is_displayed(), "Product description not present."
-    assert home.product_price_by_index_element(1).is_displayed(), "Product price not present."
-    assert home.product_add_to_cart_button_by_index_element(1).is_displayed(), "Product add to cart button not present."
+    assert home.secondary_header_sort_dropdown_element.is_displayed(
+    ), "Product sort dropdown not present."
+    assert home.secondary_header_sort_dropdown_az_option_element.is_displayed(
+    ), "Product sort dropdown option not present."
+    assert home.secondary_header_sort_dropdown_za_option_element.is_displayed(
+    ), "Product sort dropdown option not present."
+    assert home.secondary_header_sort_dropdown_hi_lo_option_element.is_displayed(
+    ), "Product sort dropdown option not present."
+    assert home.secondary_header_sort_dropdown_lo_hi_option_element.is_displayed(
+    ), "Product sort dropdown option not present."
+    assert home.product_section_by_index_element(
+        1).is_displayed(), "Product section not present."
+    assert home.product_image_by_index_element(
+        1).is_displayed(), "Product image not present."
+    assert home.product_name_by_index_element(
+        1).is_displayed(), "Product name not present."
+    assert home.product_description_by_index_element(
+        1).is_displayed(), "Product description not present."
+    assert home.product_price_by_index_element(
+        1).is_displayed(), "Product price not present."
+    assert home.product_add_to_cart_button_by_index_element(
+        1).is_displayed(), "Product add to cart button not present."
     assert home.footer_section_element.is_displayed(), "Footer section not present."
     assert home.footer_copyright_notice_element.text == home.footer_copyright_notice_text
-
-    # TODO: then - first price is higher than second price
-@then('first price is higher than second price.')
-def verify_if_first_price_is_higher_than_second_price(browser):
-    sleep(1)
-    home = HomePage(browser)
-    first_price = Decimal(home.product_price_by_index_element(1).text[1:])
-    second_price = Decimal(home.product_price_by_index_element(2).text[1:])
-    assert first_price <= second_price
-
-
-    # TODO: then - first price is lower than second price
-    # TODO: then - sorted products are in alphabetical order
-    # TODO: then - sorted products are in reverse alphabetical order

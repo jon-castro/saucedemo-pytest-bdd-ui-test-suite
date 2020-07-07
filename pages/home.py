@@ -105,6 +105,11 @@ class HomePage:
     # TODO: sort_products_by_name_in_reverse_alphabetic_order
 
     @property
+    def sort_products_by_price_high_to_low(self):
+        self.secondary_header_sort_dropdown_element.click()
+        self.secondary_header_sort_dropdown_hi_lo_option_element.click()
+
+    @property
     def sort_products_by_price_low_to_high(self):
         self.secondary_header_sort_dropdown_element.click()
         self.secondary_header_sort_dropdown_lo_hi_option_element.click()
