@@ -103,6 +103,7 @@ class HomePage:
     # Page Actions
     # TODO: sort_products_by_name_in_alphabetic_order
     # TODO: sort_products_by_name_in_reverse_alphabetic_order
+
     @property
     def sort_products_by_price_low_to_high(self):
         self.secondary_header_sort_dropdown_element.click()
