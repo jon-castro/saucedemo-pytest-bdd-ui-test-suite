@@ -101,8 +101,6 @@ class HomePage:
         return self.FOOTER_COPYRIGHT_NOTICE_TEXT
 
     # Page Actions
-    # TODO: sort_products_by_name_in_alphabetic_order
-    # TODO: sort_products_by_name_in_reverse_alphabetic_order
 
     @property
     def sort_products_by_price_high_to_low(self):
@@ -113,3 +111,13 @@ class HomePage:
     def sort_products_by_price_low_to_high(self):
         self.secondary_header_sort_dropdown_element.click()
         self.secondary_header_sort_dropdown_lo_hi_option_element.click()
+
+    @property
+    def sort_products_in_alphabetical_order(self):
+        self.secondary_header_sort_dropdown_element.click()
+        self.secondary_header_sort_dropdown_az_option_element.click()
+
+    @property
+    def sort_products_in_reverse_alphabetical_order(self):
+        self.secondary_header_sort_dropdown_element.click()
+        self.secondary_header_sort_dropdown_za_option_element.click()
