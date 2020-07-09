@@ -14,3 +14,5 @@ LOGIN_PASSWORD = os.environ.get("LOGIN_PASSWORD", None)
 # SCREENSHOTS_FOLDER = os.environ.get("SCREENSHOTS_FOLDER", None)
 # Options: 'Chrome', 'Firefox'
 SELECTED_BROWSER = 'Chrome'
+# Number of unique items to add to cart from products list, 1 to 6.
+ITEMS_TO_ADD_TO_CART_DURING_TESTS = 1

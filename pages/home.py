@@ -121,3 +121,14 @@ class HomePage:
     def sort_products_in_reverse_alphabetical_order(self):
         self.secondary_header_sort_dropdown_element.click()
         self.secondary_header_sort_dropdown_za_option_element.click()
+
+    def select_product_name_by_index_element(self, item_index):
+        self.product_name_by_index_element(item_index).click()
+
+    def select_product_image_by_index_element(self, item_index):
+        self.product_image_by_index_element(item_index).click()
+
+    @property
+    def add_products_to_cart(self):
+        for x in settings.ITEMS_TO_ADD_TO_CART_DURING_TESTS:
+            self.product_add_to_cart_button_by_index_element(x).click()
